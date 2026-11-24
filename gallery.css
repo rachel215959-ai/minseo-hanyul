@@ -1,0 +1,51 @@
+@font-face {
+  font-family: Gallery Sans;
+  src: local("Pretendard Medium"), local("Pretendard-Medium"), local("Pretendard"),
+       url("type/gallery-ko.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+* { box-sizing: border-box; }
+html { color-scheme: light; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: #fff;
+  color: #202124;
+  font-family: "Gallery Sans", "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+}
+.gallery {
+  max-width: 1420px;
+  margin-inline: auto;
+  padding: clamp(24px, 4vw, 64px) clamp(20px, 3.8vw, 60px);
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(18px, 2.45vw, 38px);
+}
+.card { display: block; min-width: 0; color: inherit; text-decoration: none; border-radius: 15px; }
+.cover {
+  display: block; width: 100%; height: auto; aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: clamp(12px, 1.25vw, 20px);
+  background: #f6f7f7;
+}
+.caption {
+  display: block; padding-top: 14px; font-size: clamp(1.06rem, 1.47vw, 1.43rem);
+  line-height: 1.5; font-weight: 500; letter-spacing: -.034em;
+}
+.card:focus-visible, .back:focus-visible { outline: 2px solid #2b6579; outline-offset: 6px; }
+@media (hover: hover) {
+  .card:hover .caption { text-decoration: underline; text-underline-offset: .22em; }
+}
+@media (max-width: 680px) {
+  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 26px 16px; }
+  .caption { padding-top: 10px; }
+}
+@media (max-width: 319px) { .cards { grid-template-columns: 1fr; } }
+.detail { width: 100%; max-width: 900px; margin-inline: auto; }
+.detail img { display: block; width: 100%; height: auto; }
+footer { padding: 28px 20px; text-align: center; }
+.back { display: inline-block; padding: 10px; color: #303439; font-size: 1rem; font-weight: 500; text-underline-offset: .22em; }
